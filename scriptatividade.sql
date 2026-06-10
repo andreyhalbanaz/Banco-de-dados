@@ -46,8 +46,30 @@ SELECT concat(last_name, ' trabalha no cargo ', job_id, ' e ganha ', salary)
 FROM employees;
 
 -- Atividade 13 
-SELECT concat(job_title, ': ', ' de ',  min_salary, ' até ',  max_salary) AS 'Faixa Salarial'
+SELECT concat(job_title, ': ', ' de R$',  min_salary, ' até R$',  max_salary) AS 'Faixa Salarial'
 FROM jobs;
+
+
+-- Atividade 14 
+SELECT distinct department_id
+FROM employees;
+
+-- Atividade 15 
+SELECT distinct job_id
+FROM employees;
+
+-- Atividade 16 
+SELECT distinct department_id ,  job_id
+FROM employees;
+
+-- Atividade 17
+select concat(last_name, ' ', first_name) as "Funcionário",
+job_id as "Cargo",
+salary as "Salario Mensal",
+salary * 12 as "Salario Anual", 
+salary * 12 * commission_pct as "Comissão Anual",
+(salary*12) + (salary *12 * commission_pct) as"Remuneração Anual total"
+from employees;
 
 
 
