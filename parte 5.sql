@@ -8,21 +8,28 @@ LEFT JOIN planos p
 ON a.id = p.id;
 
 -- Q17
-SELECT aul.nome AS 'nome_aula',
-i.nome AS 'nome_instrutor'
+SELECT aul.nome AS nome_aula,
+       i.nome AS nome_instrutor
 FROM aulas aul
-JOIN instrutor i
-ON aul.nome = i.especialidade
+JOIN instrutores i
+ON aul.instrutor_id = i.id;
 
 -- Q18
-SELECT a.nome AS 'Nome do Aluno',
-       au.nome AS 'Nome da Aula',
-       in.nome  AS 'Nome do Instrutor'
-FROM inscricoes in
-JOIN alunos a  ON in.id = al.id
-JOIN aulas au    ON in.id = au.id
-JOIN instrutor i  ON in.id = i.id
-WHERE in.status = 'ativa';
+SELECT a.nome AS aluno,
+       au.nome AS aula,
+       i.nome AS instrutor
+FROM inscricoes ins
+JOIN alunos a
+    ON ins.aluno_id = a.id
+JOIN aulas au
+    ON ins.aula_id = au.id
+JOIN instrutores i
+    ON au.instrutor_id = i.id
+WHERE ins.status = 'ativa'
+ORDER BY a.nome;
+
+
+
 
 
 
